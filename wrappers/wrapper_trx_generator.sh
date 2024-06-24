@@ -52,6 +52,7 @@ sleep 3
 ${BUILD_TEST_DIR}/trx_generator/trx_generator --generator-id $GENERATORID \
      --chain-id $CHAIN_ID \
      --target-tps 5 \
+     --trx-expiration 6 \
      --contract-owner-account eosio \
      --accounts $COMMA_SEP_ACCOUNTS \
      --priv-keys $COMMA_SEP_KEYS \
