@@ -13,14 +13,12 @@ echo $PEER_STRING
 nodeos --agent-name "Trickle Transactions" \
   --http-server-address 127.0.0.1:8888 \
   --p2p-listen-endpoint 0.0.0.0:1444 \
-  --enable-stale-production \
   --data-dir /eosnetworkfoundation/data \
   $PEER_STRING \
   --logconf /eosnetworkfoundation/config/logging.json  \
   --eos-vm-oc-enable 1 \
   --chain-state-db-size-mb 16000 \
   --verbose-http-errors \
-  --max-transaction-time 10000 \
   --allowed-connection any \
   --p2p-max-nodes-per-host 10 \
   --plugin eosio::chain_api_plugin \
