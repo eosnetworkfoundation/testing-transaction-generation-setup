@@ -17,7 +17,7 @@ nodeos --agent-name "Trickle Transactions" \
   $PEER_STRING \
   --logconf /eosnetworkfoundation/config/logging.json  \
   --eos-vm-oc-enable 1 \
-  --chain-state-db-size-mb 16000 \
+  --chain-state-db-size-mb 60000 \
   --verbose-http-errors \
   --allowed-connection any \
   --p2p-max-nodes-per-host 10 \
@@ -29,7 +29,12 @@ nodeos --agent-name "Trickle Transactions" \
   --plugin eosio::net_plugin \
   --plugin eosio::net_api_plugin \
   --plugin eosio::db_size_api_plugin \
-  --disable-replay-opts \
+  # --plugin eosio::state_history_plugin \
+  #--trace-history \
+  #--chain-state-history \
+  #--trace-history-debug-mode \
+  #--disable-replay-opts \
   --read-only-read-window-time-us 165000 \
   --read-only-write-window-time-us 50000 \
+  # --state-history-endpoint 127.0.0.1:8080 \
   > /eosnetworkfoundation/log/nodeos.log 2>&1 &
