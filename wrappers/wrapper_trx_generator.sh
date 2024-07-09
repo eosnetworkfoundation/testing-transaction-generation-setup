@@ -53,7 +53,10 @@ ${BUILD_TEST_DIR}/trx_generator/trx_generator --generator-id $GENERATORID \
      --chain-id $CHAIN_ID \
      --target-tps 5 \
      --trx-expiration 6 \
-     --contract-owner-account eosio \
+     --contract-owner-account eosio.token \
+     --abi-file /eosnetworkfoundation/repos/reference-contracts/build/contracts/eosio.token/eosio.token.abi \
+     --actions-auths "{\"${ACCOUNTS[0]}\":\"${PRIVKEYS[0]}\"}" \
+     --actions-data  "[{\"actionAuthAcct\":\"${ACCOUNTS[0]}\", \"actionName\":\"transfer\", \"actionData\":{\"from\":\"${ACCOUNTS[0]}\",\"to\":\"${ACCOUNTS[1]}\",\"quantity\":\"0.0001 EOS\",\"memo\":\"Transfer everything slowly\"}, \"actionAuthAcct\":\"${ACCOUNTS[0]}\", \"authorization\":{\"actor\":\"${ACCOUNTS[0]}\", \"permission\":\"active\"}} ]" \
      --accounts $COMMA_SEP_ACCOUNTS \
      --priv-keys $COMMA_SEP_KEYS \
      --last-irreversible-block-id $LIB_ID \
